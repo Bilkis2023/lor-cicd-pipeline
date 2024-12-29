@@ -1,7 +1,7 @@
 # push.yml
 
 #  Name of workflows
-name: Push workflows
+name: Push workflow
 
 # When workflow is triggered
 on:

@@ -22,11 +22,11 @@ const Character = ({name, imgUrl, birth, death, race, realm, spouse})=>{
                 <li>Spouse: {spouse}
 
                 </li>
-                
             </ul>
         </div>
     );
 };
+                
 
 
 export default Character;
