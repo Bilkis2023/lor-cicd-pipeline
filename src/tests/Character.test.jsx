@@ -36,7 +36,7 @@ describe('Character Component Content Structure', () => {
         expect(charImg).toBeDefined();
     });
 
-    it("Renders a list for the character", () => {
+    it("Renders a list for the Character", () => {
         render(<Character />);
 
         const charList = screen.getByRole('list');
@@ -44,50 +44,50 @@ describe('Character Component Content Structure', () => {
         expect(charList).toBeDefined();
     });
 
-    it("Renders the list items for the character", () => {
+    it("Renders all list items for the Character", () => {
         render(<Character />);
 
-        const Items = screen.getByText('listItem');
+        const Items = screen.getAllByRole('listItem');
 
         expect(Items.length).toBe(5);
     });
 
-    it("Reanders a list item for the character's DOB", () => {
+    it("Reanders a list item for the Character's DOB", () => {
         render(<Character />);
 
-        const charDOB = screen.getByText("/Date Of Birth:/, i");
+        const charDOb = screen.getByText(/Date Of Birth:/, i);
 
-        expect(charDOB).toBeDefined();
+        expect(charDOb).toBeDefined();
     });
 
-    it("Renders a list item for the character's DOD", () => {
+    it("Renders a list item for the Character's DOD", () => {
         render(<Character />);
 
-        const charDeath = screen.getByText("/Death Of Death:/, i");
+        const charDeath = screen.getByText(/Death Of Death:/, i);
 
         expect(charDeath).toBeDefined();
     });
 
-    it("Renders a list item for the character's Race", () => {
+    it("Renders a list item for the Character's Race", () => {
         render(<Character />);
 
-        const charRace = screen.getByText("/Race:/i");
+        const charRace = screen.getByText(/Race:/i);
 
         expect(charRace).toBeDefined();
     });
 
-    it("Renders a list item for the character's Realm", () => {
+    it("Renders a list item for the Character's Realm", () => {
         render(<Character />);
 
-        const charRealm = screen.getByText("/Realm:/, i");
+        const charRealm = screen.getByText(/Realm:/, i);
         expect(charRealm).toBeDefined();
 
     });
 
-    it("Renders a list item for the character's Spouse", () => {
+    it("Renders a list item for the Character's Spouse", () => {
         render(<Character />);
 
-        const charSpouse = screen.getByText("/Spouse:/, i");
+        const charSpouse = screen.getByText(/Spouse:/, i);
 
         expect(charSpouse).toBeDefined();
     });
@@ -96,29 +96,29 @@ describe('Character Component Content Structure', () => {
 
 });
 
-describe("Character components Render's Props", () => {
+describe("Character Components Render's Props", () => {
    
 
-    it("Renders the character's name", () => {
+    it("Renders the Character's name", () => {
         render(<Character {...samewiseGamgee} />);
 
-        const charHeading = screen.getByText("heading", { level: 2 });
+        const characterHeading = screen.getByRole("heading", { level: 2, name: samewiseGamgee.name });
 
-        expect(charHeading).toBeDefined();
+        expect(characterHeading).toBeDefined();
     });
 
     it("Renders the Character's DOB", () => {
-        render(<Character{...samewiseGamgee} />);
+        render(<Character {...samewiseGamgee} />);
 
-        const dethOfBirth = screen.getByText(`Death of Birth: ${samewiseGamgee.birth}`);
+        const dethOfBirth = screen.getByText(`Date of Birth: ${samewiseGamgee.birth}`);
 
         expect(dethOfBirth).toBeDefined();
     });
 
     it("Renders the Character's DOD", () => {
-        render(<Character{...samewiseGamgee} />);
+        render(<Character {...samewiseGamgee} />);
 
-        const dethOfDeath = screen.getByText(`Death of Death: ${samewiseGamgee.death}`);
+        const dethOfDeath = screen.getByText(`Date of Death: ${samewiseGamgee.death}`);
 
         expect(dethOfDeath).toBeDefined();
     });
